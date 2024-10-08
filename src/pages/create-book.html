@@ -2,13 +2,103 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/images/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Book</title>
-
+    <title>Kuy Baca - Tambah Buku</title>
     <script type="module" src="/src/script/main.js"></script>
-    <script type="module" src="/src//script/getBooks.js"></script>
+    <script type="module" src="/src/script/getBooks.js"></script>
+    <style>
+      /* Border untuk desktop */
+      @media (min-width: 768px) {
+          .form-container {
+              border: 1px solid #9cccff; /* Warna border biru */
+              border-radius: 5px; /* Sudut border melengkung */
+          }
+      }
+
+      /* Menghapus border untuk mobile */
+      @media (max-width: 767px) {
+          .form-container {
+              border: none; /* Tidak ada border */
+          }
+      }
+  </style>
   </head>
   <body>
-    <h1 class="text-center">Create Book</h1>
+    <!-- header start -->
+    <header class="container-fluid py-1 px-lg-5 px-sm-2 bg-dark text-white">
+      <div class="d-flex align-items-center">
+        <!-- Logo kuy baca -->
+        <div class="me-2"><a href="/index.html">
+          <img src="/src/images/logo.png" alt="logo" class="img-fluid" style="max-width: 25%; height: auto;"></a>
+        </div>
+      </div>
+    </header>
+    <!-- header end -->
+
+    <!-- Isian start -->
+    <section class="container min-vh-100">
+      <div class="row py-3">
+        
+        <div class="col-md-6 order-md-2 align-items-end">
+          <div class="card border-warning mt-3 mb-3">
+            <div class="card-header">Baca Ini Dulu!
+            </div>
+            <div class="card-body text-dark">
+              <h5 class="card-title">Ketentuan Penambahan Buku</h5>
+              <p class="card-text">1. Semua isian harus terisi. <br>
+                                   2. Tahun tidak boleh lebih dari tahun saat ini. <br>
+                                   3. Format gambar yang diterima: JPG, PNG, dan GIF. Max. 2MB <br></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 order-md-1 align-items-start offset-md-2 col-12 px-3 form-container" style="margin: auto; padding: 20px; margin-top: 20px;">
+          <form>
+            <div class="form-group col-md-12">
+              <label for="judulBuku">Judul Buku</label>
+              <input type="text" class="form-control" id="judulBuku" placeholder="Masukkan Judul" required>
+              <!-- <small class="form-text text-danger">Judul buku tidak boleh kosong.</small> -->
+            </div>
+            <div class="form-group col-md-12 mt-3">
+              <label for="tahun">Tahun Penerbitan</label>
+              <input type="number" class="form-control" id="tahun" placeholder="Masukkan Tahun" required>
+              <!-- <small class="form-text text-danger">Tahun penerbitan tidak boleh kosong.</small> -->
+            </div>
+            <div class="form-group col-md-12 mt-3">
+              <label for="genre">Genre Buku</label>
+              <input type="text" class="form-control" id="genre" placeholder="Masukkan Genre" required>
+              <!-- <small class="form-text text-danger">Genre buku tidak boleh kosong.</small> -->
+            </div>
+            <div class="form-group col-md-12 mt-3">
+              <label for="author">Penulis Buku</label>
+              <input type="text" class="form-control" id="author" placeholder="Masukkan Nama Penulis" required>
+              <!-- <small class="form-text text-danger">Penulis buku tidak boleh kosong.</small> -->
+            </div>
+            <div class="form-group col-md-12 mt-3">
+              <label for="deskripsiBuku">Deskripsi Buku</label>
+              <textarea class="form-control" id="deskripsiBuku" rows="3" placeholder="Masukkan deskripsi buku" required></textarea>
+              <!-- <small class="form-text text-danger">Deskripsi buku tidak boleh kosong.</small> -->
+            </div>
+            <div class="form-group col-md-12 mt-3">
+              <label for="gambarBuku">Upload Gambar Buku</label>
+              <input type="file" class="form-control-file" id="gambarBuku" accept="image/*" required>
+              <!-- <small class="form-text text-danger">Harus pilih 1 gambar.</small> -->
+            </div>
+            <div class="mt-3">
+              <button type="submit" class="btn btn-dark">Tambah</button>
+              <a href="/index.html"><button type="button" class="btn btn-light">Kembali</button></a>
+              </div>            
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Isian end -->
+
+    <!-- footer start -->
+    <footer class="p-3 bg-dark text-center">
+      <span class="text-white">Copyright &copy; 2024 Kelompok 1: <strong>Ariel, Rival, & Mahbub</strong></span>
+    </footer>
+    <!-- footer end -->
   </body>
 </html>
