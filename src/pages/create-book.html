@@ -7,22 +7,7 @@
     <title>Tambah Buku - Kuy Baca</title>
     <script type="module" src="/src/script/main.js"></script>
     <script type="module" src="/src/script/getBooks.js"></script>
-    <style>
-      /* Border untuk desktop */
-      @media (min-width: 768px) {
-          .form-container {
-              border: 1px solid #9cccff; /* Warna border biru */
-              border-radius: 5px; /* Sudut border melengkung */
-          }
-      }
-
-      /* Menghapus border untuk mobile */
-      @media (max-width: 767px) {
-          .form-container {
-              border: none; /* Tidak ada border */
-          }
-      }
-  </style>
+    <link rel="stylesheet" href="/src/css/cstyle.css">
   </head>
   <body>
     <!-- header start -->
@@ -31,6 +16,10 @@
         <!-- Logo kuy baca -->
         <div class="me-2"><a href="/index.html">
           <img src="/src/images/logo.png" alt="logo" class="img-fluid" style="max-width: 25%; height: auto;"></a>
+        </div>
+        <!-- Judul halaman -->
+        <div class="text-nowrap">
+          <h1 class="mb-0">Tambah Buku</h1>
         </div>
       </div>
     </header>
@@ -97,7 +86,7 @@
 
     <!-- footer start -->
     <footer class="p-3 bg-dark text-center">
-      <span class="text-white">Copyright &copy; 2024 Kelompok 1: <strong>Ariel, Rival, & Mahbub</strong></span>
+      <h6 class="text-white">Copyright &copy; 2024 Kelompok 1: <strong>Ariel, Rival, & Mahbub</strong></h6>
     </footer>
     <!-- footer end -->
   </body>

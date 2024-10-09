@@ -1,0 +1,12 @@
+@media (min-width: 768px) {
+  .form-container {
+      border: 1px solid #9cccff; /* Warna border biru */
+      border-radius: 5px; /* Sudut border melengkung */
+  }
+}
+
+@media (max-width: 767px) {
+  .form-container {
+      border: none; /* Tidak ada border */
+  }
+}
