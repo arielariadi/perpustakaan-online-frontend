@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Buku - Kuy Baca</title>
     <script type="module" src="/src/script/main.js"></script>
-    <script type="module" src="/src/script/getBooks.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script type="module" src="/src/script/getBooks.js"></script> -->
 </head>
 <body>
     <!-- header start -->
@@ -28,41 +29,35 @@
     <section class="container min-vh-100">
         <div class="py-3">
 
-            <form>
+            <form id="form-upload" enctype="multipart/form-data">
                 <div class="form-group col-md-12">
                     <label for="judulBuku">Judul Buku</label>
                     <input type="text" class="form-control" id="judulBuku" placeholder="Masukkan Judul" required>
-                    <!-- <small class="form-text text-danger">Judul buku tidak boleh kosong.</small> -->
                 </div>
                 <div class="form-group col-md-12 mt-3">
                     <label for="tahun">Tahun Penerbitan</label>
                     <input type="number" class="form-control" id="tahun" placeholder="Masukkan Tahun" required>
-                    <!-- <small class="form-text text-danger">Tahun penerbitan tidak boleh kosong.</small> -->
                 </div>
                 <div class="form-group col-md-12 mt-3">
                     <label for="genre">Genre Buku</label>
                     <input type="text" class="form-control" id="genre" placeholder="Masukkan Genre" required>
-                    <!-- <small class="form-text text-danger">Genre buku tidak boleh kosong.</small> -->
                 </div>
                 <div class="form-group col-md-12 mt-3">
                     <label for="author">Penulis Buku</label>
                     <input type="text" class="form-control" id="author" placeholder="Masukkan Nama Penulis" required>
-                    <!-- <small class="form-text text-danger">Penulis buku tidak boleh kosong.</small> -->
                 </div>
                 <div class="form-group col-md-12 mt-3">
                     <label for="deskripsiBuku">Deskripsi Buku</label>
                     <textarea class="form-control" id="deskripsiBuku" rows="3" placeholder="Masukkan deskripsi buku" required></textarea>
-                    <!-- <small class="form-text text-danger">Deskripsi buku tidak boleh kosong.</small> -->
                 </div>
                 <div class="form-group col-md-12 mt-3">
                     <label for="gambarBuku">Upload Gambar Buku</label>
                     <input type="file" class="form-control-file" id="gambarBuku" accept="image/*" required>
-                    <!-- <small class="form-text text-danger">Harus pilih 1 gambar.</small> -->
                 </div>
                 <div class="mt-3">
                     <button type="submit" class="btn btn-dark">Update</button>
                     <a href="./detail-book.html"><button type="button" class="btn btn-light">Kembali</button></a>
-                </div>            
+                </div>
             </form>
         </div>
     </section>
