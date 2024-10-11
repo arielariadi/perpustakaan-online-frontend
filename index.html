@@ -6,8 +6,11 @@
   <link rel="icon" type="image/svg+xml" href="./src/images/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beranda - Kuy Baca</title>
+
+  <!-- Tambahkan Bootstrap CSS -->
   <script type="module" src="/src/script/main.js"></script>
   <script type="module" src="/src/script/getAllBook.js"></script>
+
   <style>
     .card {
       transition: all 0.3s ease-in-out;
@@ -43,6 +46,24 @@
     </div>
     <div class="row">
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="bookModalLabel">Detail Buku</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body " id="modalContent">
+            <!-- Get data with template literals -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Edit</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
   <!-- katalog end -->
 
@@ -51,6 +72,9 @@
     <h6 class="text-white">Copyright &copy; 2024 Kelompok 1: <strong>Ariel, Rival, & Mahbub</strong></h6>
   </footer>
   <!-- footer end -->
+
+  <!-- Tambahkan Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
