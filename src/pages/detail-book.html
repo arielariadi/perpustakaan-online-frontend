@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/src/images/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Buku - Kuy Baca</title>
+  <script type="module" src="/src/script/main.js"></script>
+  <script type="module" src="/src/script/getDetailBook.js"></script>
+</head>
+
+<body>
+  <!-- header start -->
+  <header class="container-fluid py-1 px-lg-5 px-sm-2 bg-dark text-white">
+    <div class="d-flex align-items-center">
+      <!-- Logo kuy baca -->
+      <div class="me-2"><a href="/index.html">
+          <img src="/src/images/logo.png" alt="logo" class="img-fluid" style="max-width: 25%; height: auto;"></a>
+      </div>
+      <!-- Judul halaman -->
+      <div class="text-nowrap">
+        <h1 class="mb-0">Detail Buku</h1>
+      </div>
+    </div>
+  </header>
+  <!-- header end -->
+
+  <!-- detail start -->
+  <section class="container min-vh-100">
+    <div class="d-flex justify-content-start mt-3 mb-3">
+      <a class="btn btn-light" href="/index.html" role="button">Kembali</a>
+    </div>
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <div class="img-book">
+          <img id="img-book" class="img-fluid" alt="Book Image">
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <h6 class="card-genre"></h6>
+            <p class="card-description"></p>
+            <p class="card-description"></p>
+            <p class="card-description"></p>
+            <div class="d-flex justify-content-end mt-3">
+              <a href="../pages/edit-book.html" id="edit-book" class="btn btn-dark me-2" >Edit</a>
+              <a href="#" class="btn btn-danger" id="deleteBtn">Hapus</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- detail end -->
+
+  <!-- footer start -->
+  <footer class="p-3 bg-dark text-center">
+    <h6 class="text-white">Copyright &copy; 2024 Kelompok 1: <strong>Ariel, Rival, & Mahbub</strong></h6>
+  </footer>
+  <!-- footer end -->
+</body>
+
+</html>
