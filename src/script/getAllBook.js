@@ -19,12 +19,6 @@ $(document).ready(function () {
                 const bookId = $(this).data("id");
                 confirmData(bookId);
             });
-
-            // Event handler untuk tombol Detail
-            $(".row").on("click", ".btn-primary", function () {
-                const bookId = $(this).data("id");  // Ambil bookId dari tombol yang diklik
-                fetchBookData(bookId);
-            });
         },
         error: (e) => {
             console.log(e.responseText);
@@ -89,7 +83,7 @@ function getData(e) {
                 </div>
                 <p class="card-author">By: ${e.author}</p>
                 <div class="d-flex justify-content-start gap-1">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal" data-id="${e._id}">Detail</button>
+                    <a href="/src/pages/detail-book.html?id=${e._id}"><button type="button" class="btn btn-primary">Detail</button></a>
                     <button class="btn btn-danger deleteBtn" data-id="${e._id}">Hapus</button>
                 </div>
             </div>
@@ -98,37 +92,22 @@ function getData(e) {
 }
 
 // Get detail book
-function fetchBookData(bookId) {
-    $.ajax({
-        url: `https://perpustakaan-online-server.vercel.app/v1/books/${bookId}`,
-        method: 'GET',
-        success: function (response) {
-            const book = response.data;
+// function fetchBookData(bookId) {
+//     $.ajax({
+//         url: `https://perpustakaan-online-server.vercel.app/v1/books/${bookId}`,
+//         method: 'GET',
+//         success: function (response) {
+//             const book = response.data;
 
-            const modalContent = getModalBox(book)
-            // Mengisi konten modal
-            $('#modalContent').html(modalContent);
-        },
-        error: function (err) {
-            console.log('Error:', err);
-        }
-    });
-}
+//             const modalContent = getModalBox(book)
+//             // Mengisi konten modal
+//             $('#modalContent').html(modalContent);
+//         },
+//         error: function (err) {
+//             console.log('Error:', err);
+//         }
+//     });
+// }
 
 // Detail Modalbox
 
-function getModalBox(book){
-    return `
-    <div class="detail-wrapper d-flex flex-row gap-2">
-        <div class="img-wrapper col-md-6">
-            <img src="${book.image}" alt="Buku 1" class="card-img-top" style="object-fit: cover; height: 100%; width: 100%;" />
-        </div>
-        <div class="text-detail col-md-6 mt-3">
-            <p><strong>Judul Buku:</strong> ${book.title}</p>
-            <p><strong>Penulis:</strong> ${book.author}</p>
-            <p><strong>Tahun:</strong> ${book.year}</p>
-            <p><strong>Deskripsi:</strong> ${book.description}</p>
-        </div>
-    </div>
-`;
-}

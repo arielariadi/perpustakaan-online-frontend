@@ -2,7 +2,7 @@ import $ from "jquery"
 import Swal from 'sweetalert2'
 
 $(document).ready(function () {
-  // Get the note ID from the URL query parameters
+  // Get ID Parameter
   const urlParams = new URLSearchParams(window.location.search);
   const bookId = urlParams.get("id");
   if (bookId) {
@@ -12,8 +12,10 @@ $(document).ready(function () {
       dataType: "json",
       success: function (response) {
         const book = response.data;
-        // Populate the page with note details
+        // Set class value
         $(".card-title").text(book.title);
+        $(".card-author").text("By : " + book.author);
+        $(".card-year").text(book.year);
         $(".card-genre").text("Genre : " + book.genre);
         $(".card-description").text(book.description);
         $("#img-book").attr("src", book.image);
@@ -40,24 +42,24 @@ function confirmData() {
   Swal.fire({
     title: 'Anda yakin untuk menghapusnya?',
     icon: 'warning',
-    showCancelButton: true,       // Menampilkan tombol "Batal"
-    confirmButtonText: 'Hapus',  // Teks untuk tombol konfirmasi
-    cancelButtonText: 'Batal',       // Teks untuk tombol batal
-    reverseButtons: true,         // Mengatur urutan tombol (opsional)
+    showCancelButton: true,       
+    confirmButtonText: 'Hapus',  
+    cancelButtonText: 'Batal',       
+    reverseButtons: true,         
   }).then((result) => {
     if (result.isConfirmed) {
       $.ajax({
         type: "DELETE",
-        url: `https://perpustakaan-online-server.vercel.app/v1/delete-book`,  // Tetap gunakan URL tanpa bookId di path
-        contentType: "application/json",  // Menentukan tipe konten sebagai JSON
-        data: JSON.stringify({ id: bookId }),  // Kirim bookId di dalam body sebagai JSON
+        url: `https://perpustakaan-online-server.vercel.app/v1/delete-book`,  
+        contentType: "application/json", 
+        data: JSON.stringify({ id: bookId }),  // Send request body
         success: function () {
           Swal.fire(
             'Terhapus',
             'Daftar Buku dihapus!',
             'success'
           ).then(() => {
-            window.location.href = "/src/pages/get-all-book.html";  // Redirect kembali ke halaman utama
+            window.location.href = "/src/pages/get-all-book.html";  // Redirect 
           });
         },
         error: function (error) {
@@ -70,7 +72,6 @@ function confirmData() {
         },
       });
     } else if (result.dismiss === Swal.DismissReason.cancel) {
-      // Jika pengguna mengklik tombol "Batal"
       Swal.fire(
         'Dibatalkan',
         'Buku tidak dihapus.',
