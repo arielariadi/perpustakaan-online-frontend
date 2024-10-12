@@ -1,27 +1,45 @@
 import $ from "jquery";
+import Swal from 'sweetalert2'; 
 
 $(document).ready(function () {
   $("#form-upload").on("submit", function (event) {
-    event.preventDefault(); // Mencegah halaman reload
+    event.preventDefault(); 
 
-    const form = $(this)[0]; // Ambil elemen form
-    const formData = new FormData(form); // Buat objek FormData dari form
+    const form = $(this)[0]; 
+    const formData = new FormData(form); 
 
     $.ajax({
       type: "POST",
-      url: "https://perpustakaan-online-server.vercel.app/v1/create-book", // Ganti dengan URL yang sesuai
+      url: "https://perpustakaan-online-server.vercel.app/v1/create-book", 
       data: formData,
-      contentType: false, // Ini penting untuk mengunggah file
-      processData: false, // Jangan proses data form secara otomatis
+      contentType: false, 
+      processData: false, 
       success: function (response) {
         if (response.status === "success") {
-          window.location.href = "/src/pages/get-all-book.html"; // Redirect jika sukses
+          Swal.fire({
+            title: 'Berhasil!',
+            text: 'Buku berhasil ditambahkan.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          }).then(() => {
+            window.location.href = "/index.html"; // Redirect jika sukses
+          });
         } else {
-          console.log("Gagal: " + response.message);
+          Swal.fire({
+            title: 'Gagal',
+            text: response.message,
+            icon: 'error',
+            confirmButtonText: 'OK'
+          });
         }
       },
       error: function (xhr, status, error) {
-        console.log("Error: " + xhr.responseText); // Tampilkan error jika gagal
+        Swal.fire({
+          title: 'Error',
+          text: xhr.responseText || 'Terjadi kesalahan.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
       },
     });
   });

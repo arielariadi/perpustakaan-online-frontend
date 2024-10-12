@@ -11,10 +11,9 @@ $(document).ready(function () {
             books.forEach(e => {
                 output += getData(e);
             });
-            // Insert to row class
+
             $(".row").html(output);
 
-            // Event handler untuk tombol Hapus
             $(".row").on("click", ".deleteBtn", function () {
                 const bookId = $(this).data("id");
                 confirmData(bookId);
@@ -47,7 +46,7 @@ function confirmData(bookId) {
                         'Daftar Buku dihapus!',
                         'success'
                     ).then(() => {
-                        window.location.href = "/src/pages/get-all-book.html";
+                        window.location.href = "/index.html";
                     });
                 },
                 error: function (error) {
@@ -90,24 +89,3 @@ function getData(e) {
         </div>
     </div>`;
 }
-
-// Get detail book
-// function fetchBookData(bookId) {
-//     $.ajax({
-//         url: `https://perpustakaan-online-server.vercel.app/v1/books/${bookId}`,
-//         method: 'GET',
-//         success: function (response) {
-//             const book = response.data;
-
-//             const modalContent = getModalBox(book)
-//             // Mengisi konten modal
-//             $('#modalContent').html(modalContent);
-//         },
-//         error: function (err) {
-//             console.log('Error:', err);
-//         }
-//     });
-// }
-
-// Detail Modalbox
-

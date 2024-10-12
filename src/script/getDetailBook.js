@@ -20,9 +20,9 @@ $(document).ready(function () {
         $(".card-description").text(book.description);
         $("#img-book").attr("src", book.image);
 
-        // Set link with book id
+        // Set link
         $("#edit-book").attr("href", `/src/pages/edit-book?id=${bookId}`);
-        // Button confirmation
+
         $("#deleteBtn").on("click", function () {
           confirmData();
         });

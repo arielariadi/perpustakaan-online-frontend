@@ -61,7 +61,7 @@ $(document).ready(function () {
                 text: 'Buku berhasil diperbarui.',
                 confirmButtonText: 'OK'
               }).then(() => {
-                window.location.href = `/get-all-book.html`; // Redirect to main page
+                window.location.href = `/index.html`; // Redirect to main page
               });
             },
             error: function (error) {
