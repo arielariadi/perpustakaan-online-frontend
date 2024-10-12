@@ -1,5 +1,5 @@
 import $ from "jquery";
-import Swal from "sweetalert2"; // Import SweetAlert
+import Swal from "sweetalert2"; 
 
 $(document).ready(function () {
   // Get parameter ID
@@ -27,24 +27,24 @@ $(document).ready(function () {
           event.preventDefault();
 
           // collect data to be edited
-          const updatedTitle = $("#title").val();
-          const updatedAuthor = $("#author").val();
-          const updatedGenre = $("#genre").val();
-          const updatedYear = $("#year").val();
-          const updatedDescription = $("#description").val();
-          const updatedImage = $("#image")[0].files[0]; // File upload handling
+          const updateTitle = $("#title").val();
+          const updateAuthor = $("#author").val();
+          const updateGenre = $("#genre").val();
+          const updateYear = $("#year").val();
+          const updateDescription = $("#description").val();
+          const updateImage = $("#image")[0].files[0]; 
 
           // Prepare the data for updating
           const formData = new FormData();
-          formData.append("title", updatedTitle);
-          formData.append("author", updatedAuthor);
-          formData.append("genre", updatedGenre);
-          formData.append("year", updatedYear);
-          formData.append("description", updatedDescription);
+          formData.append("title", updateTitle);
+          formData.append("author", updateAuthor);
+          formData.append("genre", updateGenre);
+          formData.append("year", updateYear);
+          formData.append("description", updateDescription);
 
           // Include image file if there's an update
-          if (updatedImage) {
-            formData.append("image", updatedImage);
+          if (updateImage) {
+            formData.append("image", updateImage);
           }
 
           // AJAX call to update the book
@@ -61,7 +61,7 @@ $(document).ready(function () {
                 text: 'Buku berhasil diperbarui.',
                 confirmButtonText: 'OK'
               }).then(() => {
-                window.location.href = `detail.html?id=${bookId}`; // Redirect to the detail page
+                window.location.href = `/get-all-book.html`; // Redirect to main page
               });
             },
             error: function (error) {
